@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+<head>
+ <title>Home</title>
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+ <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>Welcome, <span th:utext="${username}"></span><span th:utext="${userid}"></span>!</h3>
+        <a th:href="@{/profile}" class="btn btn-warning">Profile</a>
+        <a class="btn btn-primary" th:href="@{/home/add-product}" role="button">Add New Product</a>
+        <a th:href="@{/logout}" class="btn btn-danger">Sign out</a>
+    </div>
+    <div class="container">
+        <h2>Product List</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="row">Name</th>
+                    <th scope="row">Description</th>
+                    <th scope="row">Category</th>
+                    <th scope="row">Price</th>
+                    <th scope="row">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="prod : ${all_product_list}">
+                    <td th:text="${prod.name}"></td>
+                    <td th:text="${prod.description}"></td>
+                    <td th:text="${prod.category}"></td>
+                    <td>
+                        $<span th:text="${prod.price}"></span>
+                    </td>
+                    <td>
+                        <a class="btn btn-success" th:href="@{|/home/delete-product/${prod.productid}|}" role="button">Buy</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
