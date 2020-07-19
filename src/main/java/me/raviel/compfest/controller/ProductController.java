@@ -89,7 +89,7 @@ public class ProductController {
         }
         if (!bindingResult.hasErrors()){
             
-            if(pd.getProductid() != null) {
+            if(pd.getProductid() != 0) {
                 productService.updateProduct(pd);
             } else {
                 productService.addProduct(pd);

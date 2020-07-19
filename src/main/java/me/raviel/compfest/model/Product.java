@@ -2,7 +2,7 @@ package me.raviel.compfest.model;
 
 public class Product {
 
-    private Integer productid;
+    private int productid;
     private String name;
     private String description;
     private String category;
@@ -11,7 +11,7 @@ public class Product {
     /**
      * @return int return the productid
      */
-    public Integer getProductid() {
+    public int getProductid() {
         return productid;
     }
 

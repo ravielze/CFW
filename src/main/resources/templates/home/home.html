@@ -29,14 +29,18 @@
             </thead>
             <tbody>
                 <tr th:each="prod : ${all_product_list}">
-                    <td th:text="${prod.name}"></td>
+                    <td>
+                        <span th:text="${prod.name}"></span>
+                    </td>
                     <td th:text="${prod.description}"></td>
                     <td th:text="${prod.category}"></td>
                     <td>
                         $<span th:text="${prod.price}"></span>
                     </td>
                     <td>
-                        <a class="btn btn-success" th:href="@{|/home/delete-product/${prod.productid}|}" role="button">Buy</a>
+                        <a class="btn btn-success btn-sm" th:href="@{|/home/delete-product/${prod.productid}|}" role="button">Buy</a> 
+                        <a class="btn btn-warning btn-sm" th:href="@{|/home/update-product/${prod.productid}|}" role="button">Edit</a> 
+                        <a class="btn btn-danger btn-sm" th:href="@{|/home/delete-product/${prod.productid}|}" role="button">Delete</a>
                     </td>
                 </tr>
             </tbody>
